@@ -1,5 +1,4 @@
 # routechecker
-Starlink IPv4 Route Collector
 
 This Bash script collects IPv4 route objects from Internet Routing Registry (IRR) databases for a list of Autonomous System Numbers (ASNs). It filters out private, loopback, default, and NAT ranges, stores the results with version control, and logs changes. Only the latest two versions of each output file are retained.
 
