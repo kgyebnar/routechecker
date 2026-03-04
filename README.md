@@ -10,20 +10,17 @@ AS14593, AS36492
 
 2. Run the script:
 
-chmod +x route_fetcher.sh
-./route_fetcher.sh
+chmod +x routequery.sh
+./routequery.sh
 
 📦 Outputs
 
 For each ASN:
 
-ipv4_routes_<AS>_<timestamp>.txt: current prefix list
-
-<AS>_latest.txt: current list (copy)
-
-diff_<AS>_<timestamp>.txt: diff against previous version (if available)
-
-log_<AS>.txt: changelog, including prefix count on first run
+- **ipv4_routes_<ASN>_<timestamp>.txt**: Current prefix list
+- **<ASN>_latest.txt**: Copy of the current list
+- **diff_<ASN>_<timestamp>.txt**: Differences against previous version (if available)
+- **log_<ASN>.txt**: Changelog with prefix count on first run
 
 🧹 Retention Policy
 
@@ -43,30 +40,25 @@ The following IP ranges are automatically excluded:
 
 📘 Change Log
 
-Each log_<AS>.txt file contains entries for every run:
+Each log_<ASN>.txt file contains entries for every run:
 
-On first run: prefix count is logged
-
-On subsequent runs: number of changes is logged (warns if more than 5)
+- **First run**: Logs total prefix count
+- **Subsequent runs**: Logs number of changes (warns if more than 5)
 
 📡 IRR Sources Queried
 
 The script queries the following IRR databases:
 
-whois.radb.net
-
-whois.ripe.net
-
-whois.jp.apnic.net
+- whois.radb.net
+- whois.ripe.net
+- whois.jp.apnic.net
 
 🧪 Testing
 
 To test the script:
 
-Create an AS.txt file with real ASNs (e.g. Starlink: AS14593)
-
-Run the script multiple times
-
-Review the diff and log files to verify change tracking
+1. Create an AS.txt file with real ASNs (e.g., Starlink: AS14593)
+2. Run the script multiple times
+3. Review the diff and log files to verify change tracking
 
 Designed for advanced IRR monitoring, automation via cron, audit pipelines, and change tracking workflows.
